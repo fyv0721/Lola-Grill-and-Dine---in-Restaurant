@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lola Grill & Restaurant | Authentic Filipino Grill in Bacolod</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Authentic Filipino Grill in Bacolod. Women-owned, 4.9 stars. Enjoy Inasal, Liempo, and more. Dine-in, takeout, and delivery available.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #C0392B; /* Ember Red */
+            --accent: #E67E22;  /* Flame Orange */
+            --dark: #1a0a00;    /* Charcoal */
+            --cream: #FDF6EC;   /* Cream */
+            --gold: #F39C12;    /* Gold */
+            --text-main: #2c1e14;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background-color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #a93226;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(192, 57, 43, 0.3);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background-color: #d35400;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--dark);
+        }
+
+        /* 1. STICKY NAVIGATION BAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: transparent;
+            transition: var(--transition);
+            padding: 20px 0;
+        }
+
+        nav.scrolled {
+            background-color: rgba(26, 10, 0, 0.95);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo span:first-child {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 900;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .logo span:last-child {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: -5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            font-weight: 400;
+            font-size: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: white;
+            transition: var(--transition);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background-color: var(--dark);
+            z-index: 999;
+            overflow: hidden;
+            transition: height 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .mobile-menu.active {
+            height: 100vh;
+        }
+
+        .mobile-menu a {
+            color: white;
+            font-size: 24px;
+            font-family: var(--font-display);
+        }
+
+        /* 2. HERO SECTION */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            /* Gradient Fallback */
+            background: linear-gradient(135deg, #1a0a00 0%, #3d1a00 50%, #602500 100%);
+        }
+
+        #smoke-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(26, 10, 0, 0.8) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size:clamp(40px, 8vw, 72px);
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .rating-badge span {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        /* 3. SOCIAL PROOF BAR */
+        .social-proof {
+            background-color: var(--dark);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .social-proof .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .proof-item {
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        .proof-item i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        /* 4. ABOUT / STORY SECTION */
+        .about {
+            padding: 100px 0;
+            background-color: var(--cream);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 17px;
+        }
+
+        .women-owned-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 700;
+            margin-top: 10px;
+            box-shadow: 3px 3px 0px var(--dark);
+        }
+
+        .about-image {
+            position: relative;
+            height: 450px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #1a0a00, #C0392B);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 50% 50%, transparent 20%, rgba(0,0,0,0.4) 100%);
+        }
+
+        /* 5. MENU HIGHLIGHTS SECTION */
+        .menu-highlights {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .section-header .line {
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 0 auto;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background-color: var(--cream);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(192, 57, 43, 0.1);
+            border-color: var(--accent);
+        }
+
+        .menu-emoji {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .menu-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .menu-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .menu-price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* 6. WHY CHOOSE US SECTION */
+        .why-us {
+            padding: 100px 0;
+            background-color: var(--dark);
+            color: white;
+            position: relative;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+
+        .why-card i {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .why-card h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* 7. REVIEWS SECTION */
+        .reviews {
+            padding: 100px 0;
+            background-color: var(--cream);
+        }
+
+        .review-stats {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .review-stats .rating {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .review-stats .stars {
+            color: var(--gold);
+            margin: 10px 0;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .reviewer-info h5 {
+            font-family: var(--font-body);
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .review-stars {
+            color: var(--gold);
+            font-size: 12px;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* 8. OPERATING INFO SECTION */
+        .operating-info {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .info-details {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-box {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .info-box i {
+            font-size: 24px;
+            color: var(--primary);
+            width: 40px;
+        }
+
+        .status-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .status-open { background-color: #e8f5e9; color: #2e7d32; }
+        .status-closed { background-color: #ffebee; color: #c62828; }
+
+        .services-check i {
+            color: #2e7d32;
+            margin-right: 5px;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* 9. CONTACT / ORDER CTA SECTION */
+        .cta-section {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, #8e271a 100%);
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size:clamp(32px, 5vw, 56px);
+            margin-bottom: 40px;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .facebook-link {
+            margin-top: 40px;
+            display: block;
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        .facebook-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* 10. FOOTER */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo span:first-child {
+            color: var(--accent);
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 900;
+        }
+
+        .footer-about p {
+            font-size: 14px;
+            opacity: 0.6;
+            margin-top: 15px;
+            max-width: 300px;
+        }
+
+        .footer-links h5, .footer-contact h5 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--cream);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        .footer-links ul li a:hover {
+            opacity: 1;
+            padding-left: 5px;
+            color: var(--accent);
+        }
+
+        .footer-contact p {
+            font-size: 14px;
+            opacity: 0.6;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        /* Fixed / Floating Elements */
+        .fixed-call {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 998;
+            background-color: #2e7d32;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: pulse-green 2s infinite;
+        }
+
+        .floating-order {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            z-index: 998;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(192, 57, 43, 0.4);
+            visibility: hidden;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0.5s;
+        }
+
+        .floating-order.visible {
+            transform: translateX(-50%) translateY(0);
+            visibility: visible;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(46, 125, 50, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered transition children */
+        .stagger-child {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.5s ease;
+        }
+
+        .reveal .stagger-child {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Responsive Media Queries */
+        @media (max-width: 992px) {
+            .about-grid, .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                height: 350px;
+                order: -1;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta-wrapper {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero-btns {
+                flex-direction: column;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .social-proof .container {
+                justify-content: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. STICKY NAVIGATION BAR -->
+    <nav id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <span>Lola Grill</span>
+                <span>& Restaurant</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#about">About</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="nav-cta-wrapper">
+                <a href="#" class="btn btn-primary" style="padding: 10px 20px;">Order Now</a>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="#" class="btn btn-primary">Order Online</a>
+    </div>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero" id="home">
+        <canvas id="smoke-canvas"></canvas>
+        <div class="hero-content fade-in">
+            <div class="rating-badge">
+                <span><i class="fas fa-star"></i> 4.9</span> (520 Verified Reviews)
+            </div>
+            <h1>Authentic Filipino Grill, Straight from Lola's Heart</h1>
+            <p>Dine-in · Takeout · Delivery — Bacolod's favorite grill experience since 2021</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn btn-primary">View Menu</a>
+                <a href="#" class="btn btn-outline">Order Online</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SOCIAL PROOF BAR -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="proof-item"><i class="fas fa-star"></i> 4.9 Google Rating</div>
+            <div class="proof-item"><i class="fas fa-users"></i> 520+ Happy Customers</div>
+            <div class="proof-item"><i class="fas fa-female"></i> Women-Owned</div>
+            <div class="proof-item"><i class="fas fa-map-marker-alt"></i> Est. Bacolod, Negros Occidental</div>
+        </div>
+    </section>
+
+    <!-- 4. ABOUT / STORY SECTION -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid fade-in">
+                <div class="about-text">
+                    <div class="women-owned-badge">
+                        <i class="fas fa-certificate"></i> Women-Owned & Proud
+                    </div>
+                    <h2 style="margin-top: 20px;">The Legacy of Lola's Grill</h2>
+                    <p>At Lola Grill & Restaurant, every flame-grilled dish is a tribute to the authentic Filipino flavors passed down through generations. Founded and owned by visionary women from Bacolod, we pride ourselves on using traditional "Inasal" techniques and secret family marinades.</p>
+                    <p>Our kitchen isn't just about food; it's about the warmth of a Filipino home. We source our ingredients locally to support Bacolod's farmers, ensuring that every bite of our Liempo or SISIG is as fresh as it is flavorful.</p>
+                    <a href="#menu" class="btn btn-accent">Explore Our Origins</a>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-fire" style="font-size: 80px; color: rgba(255,255,255,0.2); position: absolute; z-index: 1;"></i>
+                    <div style="color: white; text-align: center; position: relative; z-index: 2;">
+                        <span style="font-family: var(--font-display); font-size: 24px; font-style: italic;">Made with Love,</span><br>
+                        <span style="font-family: var(--font-display); font-size: 48px; font-weight: 700;">Since 2021</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MENU HIGHLIGHTS SECTION -->
+    <section class="menu-highlights" id="menu">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 style="font-style: italic;">From Our Grill to Your Table</h2>
+                <div class="line"></div>
+                <p style="margin-top: 15px; color: #666;">Handcrafted Filipino favorites prepared fresh daily.</p>
+            </div>
+            
+            <div class="menu-grid fade-in">
+                <!-- Item 1 -->
+                <div class="menu-card stagger-child stagger-1">
+                    <div>
+                        <span class="menu-emoji">🔥</span>
+                        <h3>Inihaw na Liempo</h3>
+                        <p>Tender pork belly marinated in our signature soy-citrus blend, grilled to smoky perfection.</p>
+                    </div>
+                    <div>
+                        <span class="menu-price">₱280 - ₱450</span>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Order</a>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="menu-card stagger-child stagger-2">
+                    <div>
+                        <span class="menu-emoji">🍗</span>
+                        <h3>Chicken Inasal</h3>
+                        <p>Bacolod's pride. Original family recipe chicken thigh, marinated in ginger, calamansi, and annatto.</p>
+                    </div>
+                    <div>
+                        <span class="menu-price">₱180 - ₱320</span>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Order</a>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="menu-card stagger-child stagger-3">
+                    <div>
+                        <span class="menu-emoji">🍢</span>
+                        <h3>Pork BBQ Skewers</h3>
+                        <p>Three giant skewers of sweet and spicy pork, glazed with our house BBQ sauce.</p>
+                    </div>
+                    <div>
+                        <span class="menu-price">₱150 - ₱250</span>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Order</a>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="menu-card stagger-child stagger-4">
+                    <div>
+                        <span class="menu-emoji">🐟</span>
+                        <h3>Grilled Bangus</h3>
+                        <p>Giant milkfish stuffed with fresh tomatoes and onions, charcoal-grilled in banana leaves.</p>
+                    </div>
+                    <div>
+                        <span class="menu-price">₱320 - ₱450</span>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Order</a>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="menu-card stagger-child stagger-1">
+                    <div>
+                        <span class="menu-emoji">🍳</span>
+                        <h3>Special Sisig</h3>
+                        <p>Finely chopped grilled mask and ears, served on a sizzling plate with egg and chili.</p>
+                    </div>
+                    <div>
+                        <span class="menu-price">₱250 - ₱380</span>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Order</a>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="menu-card stagger-child stagger-2">
+                    <div>
+                        <span class="menu-emoji">🥜</span>
+                        <h3>Kare-Kare</h3>
+                        <p>Beef tripe and vegetables in a rich peanut sauce, served with our house-made bagoong.</p>
+                    </div>
+                    <div>
+                        <span class="menu-price">₱350 - ₱480</span>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Order</a>
+                    </div>
+                </div>
+                <!-- Item 7 -->
+                <div class="menu-card stagger-child stagger-3">
+                    <div>
+                        <span class="menu-emoji">🥣</span>
+                        <h3>Sinigang na Baboy</h3>
+                        <p>Traditional sour tamarind broth with tender pork spare ribs and farm-fresh vegetables.</p>
+                    </div>
+                    <div>
+                        <span class="menu-price">₱300 - ₱420</span>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Order</a>
+                    </div>
+                </div>
+                <!-- Item 8 -->
+                <div class="menu-card stagger-child stagger-4">
+                    <div>
+                        <span class="menu-emoji">🥩</span>
+                        <h3>Lechon Kawali</h3>
+                        <p>Triple-fried pork belly chunks, super crispy skin, and tender juicy meat.</p>
+                    </div>
+                    <div>
+                        <span class="menu-price">₱280 - ₱450</span>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. WHY CHOOSE US SECTION -->
+    <section class="why-us">
+        <div class="container">
+            <div class="why-grid fade-in">
+                <div class="why-card">
+                    <i class="fas fa-fire-alt"></i>
+                    <h4>Authentic Flavor</h4>
+                    <p>True Negros charcoal-grilling techniques used in every dish.</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-female"></i>
+                    <h4>Women-Owned</h4>
+                    <p>Proudly local, woman-owned business supporting Bacolod.</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-truck"></i>
+                    <h4>Fast Delivery</h4>
+                    <p>Hot and fresh to your doorstep within 30-45 minutes.</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-heart"></i>
+                    <h4>Made with Love</h4>
+                    <p>Family recipes that have been refined over decades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. REVIEWS SECTION -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>What Our Customers Say</h2>
+                <div class="line"></div>
+                <div class="review-stats">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="rating">4.9 out of 5 — 520 Google Reviews</div>
+                </div>
+            </div>
+            
+            <div class="review-grid fade-in">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="reviewer">
+                        <div class="avatar">ML</div>
+                        <div class="reviewer-info">
+                            <h5>Maria Lourdes</h5>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"The best Chicken Inasal in Carmenville! Lasang-lasa yung marinade, and very juicy even the breast part. The Liempo is also a must-try. Namit gid!"</p>
+                </div>
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="reviewer">
+                        <div class="avatar">JC</div>
+                        <div class="reviewer-info">
+                            <h5>Juan Carlos</h5>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Brought my family here and they absolutely loved the Sisig and Kare-Kare. Service is fast and the staff are very accommodating. Highly recommended!"</p>
+                </div>
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="reviewer">
+                        <div class="avatar">SG</div>
+                        <div class="reviewer-info">
+                            <h5>Sarah G.</h5>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Ordered for delivery and the food arrived piping hot! The packaging is good, no spills. Lola's Sinigang is the perfect comfort food for rainy days."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. OPERATING INFO SECTION -->
+    <section class="operating-info" id="contact">
+        <div class="container">
+            <div class="info-grid fade-in">
+                <div class="info-details">
+                    <div>
+                        <h2>Visit Us or Order Today</h2>
+                        <div id="status-display">
+                            <!-- Dynamic status will be injected here -->
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Monday - Sunday: 11:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <i class="fas fa-utensils"></i>
+                        <div>
+                            <h4>Services Available</h4>
+                            <div class="services-check">
+                                <p><i class="fas fa-check-circle"></i> Dine-in</p>
+                                <p><i class="fas fa-check-circle"></i> Takeout</p>
+                                <p><i class="fas fa-check-circle"></i> Delivery</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-box">
+                        <i class="fas fa-tag"></i>
+                        <div>
+                            <h4>Price Range</h4>
+                            <p>₱500 – ₱1,000 per person</p>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Contact Number</h4>
+                            <a href="tel:09171204435" style="font-weight: 700; color: var(--primary);">0917 120 4435</a>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Block 1, Lot 2, Carmenville Subdivision,<br>Bacolod, 6100 Negros Occidental</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <!-- Google Maps Embed (Carmenville Bacolod area) -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15668.046831411516!2d122.94!3d10.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aed035889fc683%3A0x67db23a54d63321d!2sCarmenville%20Subdivision!5e0!3m2!1sen!2sph!4v1684000000000!5m2!1sen!2sph" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CONTACT / ORDER CTA SECTION -->
+    <section class="cta-section">
+        <div class="container fade-in">
+            <h2>Ready to Order?</h2>
+            <p style="margin-bottom: 40px; font-size: 20px;">Experience the best grill in Bacolod today.</p>
+            <div class="cta-btns">
+                <a href="tel:09171204435" class="btn btn-outline" style="min-width: 200px;">
+                    <i class="fas fa-phone"></i> Call Us Now
+                </a>
+                <a href="#" class="btn btn-accent" style="min-width: 200px;">
+                    <i class="fas fa-shopping-cart"></i> Order Online
+                </a>
+            </div>
+            <a href="https://facebook.com/profile.php?id=61567045359250" class="facebook-link" target="_blank">
+                <i class="fab fa-facebook"></i> Visit us on Facebook
+            </a>
+        </div>
+    </section>
+
+    <!-- 10. FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">
+                        <span>Lola Grill</span>
+                    </a>
+                    <p>Authentic Filipino flavors, woman-owned and proudly serving the heart of Negros Occidental.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="#about">Story</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="#">Dine-in</a></li>
+                        <li><a href="#">Delivery</a></li>
+                        <li><a href="#">Catering</a></li>
+                        <li><a href="#">Private Events</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h5>Get in Touch</h5>
+                    <p><i class="fas fa-phone"></i> 0917 120 4435</p>
+                    <p><i class="fas fa-envelope"></i> hello@lolagrill.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Carmenville Subd, Bacolod</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>© 2025 Lola Grill & Restaurant. All rights reserved. | Women-Owned Business</div>
+                <div>Designed with ❤️ in Bacolod City</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed / Floating Elements -->
+    <a href="tel:09171204435" class="fixed-call" title="Call Us">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <a href="#" class="floating-order" id="floating-btn">
+        🔥 Order Now - Come Hungry!
+    </a>
+
+    <script>
+        // --- SCROLL EFFECTS ---
+        const navbar = document.getElementById('navbar');
+        const floatingBtn = document.getElementById('floating-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Show floating order button after scrolling past hero
+            if (window.scrollY > 600) {
+                floatingBtn.classList.add('visible');
+            } else {
+                floatingBtn.classList.remove('visible');
+            }
+        });
+
+        // --- MOBILE MENU ---
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-menu a');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            
+            // Hamburger animation
+            const spans = hamburger.querySelectorAll('span');
+            if (mobileMenu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                const spans = hamburger.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+
+        // --- INTERSECTION OBSERVER FOR FADE-IN ---
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // --- DYNAMIC OPEN STATUS ---
+        function updateStatus() {
+            const statusDisplay = document.getElementById('status-display');
+            const now = new Date();
+            const hour = now.getHours();
+            
+            // Open 11:00 AM to 10:00 PM (22:00)
+            if (hour >= 11 && hour < 22) {
+                statusDisplay.innerHTML = `
+                    <span class="status-pill status-open">Open Now</span>
+                    <p style="margin-top: 5px; color: #2e7d32; font-weight: 700;">🔥 Grilling until 10PM today!</p>
+                `;
+            } else {
+                statusDisplay.innerHTML = `
+                    <span class="status-pill status-closed">Closed Now</span>
+                    <p style="margin-top: 5px; color: #c62828; font-weight: 700;">Opens tomorrow at 11:00 AM</p>
+                `;
+            }
+        }
+        updateStatus();
+
+        // --- SMOKE PARTICLE EFFECT ---
+        const canvas = document.getElementById('smoke-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 100;
+                this.vx = (Math.random() - 0.5) * 1.5;
+                this.vy = -Math.random() * 2 - 1;
+                this.alpha = Math.random() * 0.5;
+                this.size = Math.random() * 40 + 20;
+                this.growth = Math.random() * 0.5;
+                this.color = Math.random() > 0.5 ? 'rgba(100, 100, 100,' : 'rgba(192, 57, 43,';
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color + this.alpha + ')';
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= 0.002;
+                this.size += this.growth;
+                if (this.alpha <= 0 || this.y < -100) {
+                    this.reset();
+                }
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + 50;
+                this.alpha = Math.random() * 0.5;
+                this.size = Math.random() * 40 + 20;
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < 40; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        initParticles();
+        animate();
+    </script>
+</body>
+</html>
